@@ -194,6 +194,17 @@
     );
   }
 
+  function playerLink(response) {
+    if (!response) return null;
+    return (
+      response.video_link ||
+      response.videoLink ||
+      response.mp4 ||
+      response.url ||
+      null
+    );
+  }
+
   function makeItem(ott, id, detail) {
     var referer = detail.img_referer || 'https://net52.cc';
     var rating = value(detail, ['IMDB Rating']);
@@ -383,7 +394,8 @@
     try {
       var parsed = parseUrl(url);
       var response = await player(parsed.ott, parsed.id);
-      if (!response || !response.video_link) {
+      var link = playerLink(response);
+      if (!link) {
         cb({ success: true, data: [] });
         return;
       }
@@ -391,9 +403,9 @@
         success: true,
         data: [
           new StreamResult({
-            url: response.video_link,
-            source: 'NetMirror â€¢ ' + LABELS[parsed.ott],
-            quality: response.video_link.indexOf('.m3u8') >= 0 ? 'Auto' : undefined,
+            url: link,
+            source: 'NetMirror • ' + LABELS[parsed.ott],
+            quality: link.indexOf('.m3u8') >= 0 ? 'Auto' : undefined,
             headers: { Referer: response.referer || 'https://net52.cc' }
           })
         ]

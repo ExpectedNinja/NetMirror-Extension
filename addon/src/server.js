@@ -1,4 +1,4 @@
-﻿import http from 'node:http';
+import http from 'node:http';
 import { URL } from 'node:url';
 import {
   OTT_LABELS,
@@ -78,6 +78,16 @@ function html(res, status, body) {
     'Cache-Control': 'public, max-age=300',
   });
   res.end(body);
+}
+
+function playerLink(response) {
+  return (
+    response?.video_link ||
+    response?.videoLink ||
+    response?.mp4 ||
+    response?.url ||
+    null
+  );
 }
 
 function metaType(detail) {
@@ -290,7 +300,7 @@ async function streamsForImdb(imdbId, type, season, episode) {
       episodeItem ? episodeItem.id : match.detail.main_id || match.id
     );
     const stream = newtvStream(
-      response?.video_link,
+      playerLink(response),
       response?.referer || 'https://net52.cc',
       `NetMirror â€¢ ${OTT_LABELS[match.ott]}`
     );
@@ -322,7 +332,7 @@ async function streamsForTmdb(tmdbId, type, season, episode) {
           episodeItem ? episodeItem.id : match.detail.main_id || match.id
         );
         const stream = newtvStream(
-          response?.video_link,
+          playerLink(response),
           response?.referer || 'https://net52.cc',
           `NetMirror â€¢ ${OTT_LABELS[match.ott]}`
         );
@@ -347,14 +357,14 @@ async function streamsForNetmirror(ott, id, season, episode) {
     response = await player(ott, id);
   }
 
-  if (!response?.video_link) {
+  if (!playerLink(response)) {
     const detail = await post(ott, id);
     const first = (detail?.episodes ?? []).filter(Boolean)[0];
     if (first) response = await player(ott, first.id);
   }
 
   const stream = newtvStream(
-    response?.video_link,
+    playerLink(response),
     response?.referer || 'https://net52.cc',
     `NetMirror â€¢ ${OTT_LABELS[ott]}`
   );

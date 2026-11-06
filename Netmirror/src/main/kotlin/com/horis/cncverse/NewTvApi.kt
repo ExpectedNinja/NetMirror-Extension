@@ -373,8 +373,15 @@ object NewTvApi {
     data class NewTvPlayerResponse(
         val status: String? = null,
         val video_link: String? = null,
+        val videoLink: String? = null,
+        val mp4: String? = null,
+        val url: String? = null,
         val referer: String? = null
-    )
+    ) {
+        val link: String?
+            get() = listOf(video_link, videoLink, mp4, url)
+                .firstOrNull { !it.isNullOrBlank() }
+    }
 }
 
 data class NewTvId(val id: String)

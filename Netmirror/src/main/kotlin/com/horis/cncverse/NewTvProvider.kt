@@ -196,7 +196,7 @@ abstract class NewTvProvider : MainAPI() {
     ): Boolean {
         val id = parseJson<NewTvLoadData>(data).id
         val response = NewTvApi.player(ott, id)
-        val link = response.video_link
+        val link = response.link
         if (link.isNullOrBlank()) return false
         val type = if (link.contains(".mp4")) ExtractorLinkType.VIDEO else ExtractorLinkType.M3U8
         callback(

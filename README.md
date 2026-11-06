@@ -18,7 +18,7 @@ Cloud Stream ( To install : [View Docs](https://recloudstream.github.io/csdocs/)
 ### What changed
 
 - Fixed "too many requests": providers now share one rate-limited NewTV client with caching and 429/5xx retry/backoff.
-- Fixed playback links (`status: "otp"`) and updated the new season/episode/metadata fields.
+- Playback no longer depends on the `status` value (it has changed from `ok` to `otp` and may change again); the returned link is used whenever present. Updated the new season/episode/metadata fields.
 - Removed the separate Disney provider; Hotstar already includes Disney+ content.
 - Added native SkyStream and Nuvio plugins that run without Node:
   - SkyStream repo: `https://raw.githubusercontent.com/ExpectedNinja/NetMirror-Extension/master/skystream/repo.json`

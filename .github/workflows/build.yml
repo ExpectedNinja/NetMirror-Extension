@@ -48,6 +48,19 @@ jobs:
           echo "SIMKL_API=$SIMKL_API" >> local.properties
           echo "TMDB_READ_TOKEN=$TMDB_READ_TOKEN" >> local.properties
 
+      - name: Validate native plugins
+        run: |
+          cd src
+          node --check skystream/netmirror/plugin.js
+          node --check nuvio/providers/netmirror.js
+
+      - name: Validate universal addon
+        run: |
+          cd src/addon
+          node --check src/core.js
+          node --check src/server.js
+          npm test
+
       - name: Build Plugins
         env:
           MOVIEBOX_SECRET_KEY_DEFAULT: ${{ secrets.MOVIEBOX_SECRET_KEY_DEFAULT }}

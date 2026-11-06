@@ -1,0 +1,16 @@
+{
+  "packageName": "com.sushan64.netmirror",
+  "name": "NetMirror",
+  "version": 1,
+  "baseUrl": "https://net52.cc",
+  "description": "Netflix, Prime Video and Hotstar via NetMirror, with rate-limited NewTV requests.",
+  "iconUrl": "https://raw.githubusercontent.com/ExpectedNinja/NetMirror-Extension/master/Netmirror/logo.jpeg",
+  "authors": ["Sushan64"],
+  "languages": ["hi", "en"],
+  "categories": ["Movies", "TV Series"],
+  "providers": [
+    { "id": "nf", "name": "Netflix" },
+    { "id": "pv", "name": "Prime Video" },
+    { "id": "hs", "name": "Hotstar" }
+  ]
+}

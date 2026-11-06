@@ -1,0 +1,12 @@
+﻿services:
+  netmirror-addon:
+    build: .
+    ports:
+      - "7000:7000"
+    environment:
+      PORT: "7000"
+      PUBLIC_URL: ${PUBLIC_URL:-}
+      TMDB_READ_TOKEN: ${TMDB_READ_TOKEN:-}
+      CATALOG_LIMIT: ${CATALOG_LIMIT:-8}
+    restart: unless-stopped
+

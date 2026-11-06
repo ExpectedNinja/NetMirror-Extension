@@ -53,7 +53,7 @@ subprojects {
     apply(plugin = "com.lagradost.cloudstream3.gradle")
 
     cloudstream {
-        setRepo(System.getenv("GITHUB_REPOSITORY") ?: "https://github.com/Sushan64/NetMirror-Extension.git")
+        setRepo(System.getenv("GITHUB_REPOSITORY") ?: "https://github.com/ExpectedNinja/NetMirror-Extension.git")
         authors = listOf("Sushan64")
     }
 

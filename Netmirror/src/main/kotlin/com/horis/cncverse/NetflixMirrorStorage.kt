@@ -4,32 +4,56 @@ import android.content.Context
 import android.content.SharedPreferences
 
 object NetflixMirrorStorage {
-    private lateinit var context: Context
-    private lateinit var prefs: SharedPreferences
+    private var prefs: SharedPreferences? = null
 
     fun init(context: Context) {
-        this.context = context.applicationContext
-        this.prefs = context.getSharedPreferences("NetflixMirrorPrefs", Context.MODE_PRIVATE)
+        prefs = context.applicationContext
+            .getSharedPreferences("NetflixMirrorPrefs", Context.MODE_PRIVATE)
     }
 
+    private fun prefs(): SharedPreferences? = prefs
+
     fun saveCookie(cookie: String) {
-        val editor = prefs.edit()
-        editor.putString("nf_cookie", cookie)
-        editor.putLong("nf_cookie_timestamp", System.currentTimeMillis())
-        editor.apply()
+        prefs()?.edit()
+            ?.putString("nf_cookie", cookie)
+            ?.putLong("nf_cookie_timestamp", System.currentTimeMillis())
+            ?.apply()
     }
 
     fun getCookie(): Pair<String?, Long> {
+        val p = prefs() ?: return Pair(null, 0L)
         return Pair(
-            prefs.getString("nf_cookie", null),
-            prefs.getLong("nf_cookie_timestamp", 0L)
+            p.getString("nf_cookie", null),
+            p.getLong("nf_cookie_timestamp", 0L)
         )
     }
 
     fun clearCookie() {
-        val editor = prefs.edit()
-        editor.remove("nf_cookie")
-        editor.remove("nf_cookie_timestamp")
-        editor.apply()
+        prefs()?.edit()
+            ?.remove("nf_cookie")
+            ?.remove("nf_cookie_timestamp")
+            ?.apply()
+    }
+
+    fun saveApiBase(baseUrl: String) {
+        prefs()?.edit()
+            ?.putString("newtv_api_base", baseUrl)
+            ?.putLong("newtv_api_base_timestamp", System.currentTimeMillis())
+            ?.apply()
+    }
+
+    fun getApiBase(): Pair<String?, Long> {
+        val p = prefs() ?: return Pair(null, 0L)
+        return Pair(
+            p.getString("newtv_api_base", null),
+            p.getLong("newtv_api_base_timestamp", 0L)
+        )
+    }
+
+    fun clearApiBase() {
+        prefs()?.edit()
+            ?.remove("newtv_api_base")
+            ?.remove("newtv_api_base_timestamp")
+            ?.apply()
     }
 }

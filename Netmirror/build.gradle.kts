@@ -1,5 +1,5 @@
 // use an integer for version numbers
-version = 43
+version = 44
 
 android {
     buildFeatures {
@@ -17,7 +17,7 @@ cloudstream {
     language = "hi"
     // All of these properties are optional, you can safely remove them
 
-    description = "Netflix, PrimeVideo, Disney+ Hotstar Contents in Multiple Languages"
+    description = "Netflix, Prime Video and Hotstar (incl. Disney+) in Multiple Languages"
     authors = listOf("Sushan64")
 
     /**
@@ -33,5 +33,5 @@ cloudstream {
         "TvSeries"
     )
 
-    iconUrl = "https://raw.githubusercontent.com/Sushan64/NetMirror-Extension/refs/heads/master/Netmirror/logo.jpeg"
+    iconUrl = "https://raw.githubusercontent.com/ExpectedNinja/NetMirror-Extension/refs/heads/master/Netmirror/logo.jpeg"
 }

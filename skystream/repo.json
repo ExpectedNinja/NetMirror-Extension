@@ -1,0 +1,9 @@
+{
+  "name": "NetMirror",
+  "packageName": "com.sushan64.netmirror.repo",
+  "description": "NetMirror plugins for SkyStream",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/ExpectedNinja/NetMirror-Extension/master/skystream/dist/plugins.json"
+  ]
+}

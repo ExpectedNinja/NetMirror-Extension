@@ -11,3 +11,5 @@
 .cxx
 local.properties
 .vscode
+node_modules
+.env

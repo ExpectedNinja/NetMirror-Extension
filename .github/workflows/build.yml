@@ -82,7 +82,8 @@ jobs:
         run: |
           cd src
           find . -name "*.cs3" -exec cp {} ../builds/ \;
-          cp build/plugins.json ../builds/ 2>/dev/null || echo "plugins.json not found, skipping"
+          cp build/plugins.json ../builds/plugins.json 2>/dev/null || echo "plugins.json not found, skipping"
+          cp build/plugins.json ../builds/Netflix.json 2>/dev/null || true
 
       - name: Commit and push to builds branch
         run: |

@@ -1,10 +1,10 @@
 [
     {
         "iconUrl": "https://raw.githubusercontent.com/ExpectedNinja/NetMirror-Extension/refs/heads/master/Netmirror/logo.jpeg",
-        "fileHash": "sha256-d8d3b3cb4789b4388f5e0d58f8f8559e8674f1e944d1d1aff1f883eef81e05c7",
+        "fileHash": "sha256-f016ec93894f4d572c81842e77e2b02292b7efa10ecd1ce08aa5486a87909b60",
         "apiVersion": 1,
         "repositoryUrl": "https://github.com/ExpectedNinja/NetMirror-Extension",
-        "fileSize": 60581,
+        "fileSize": 61210,
         "status": 1,
         "language": "hi",
         "authors": [

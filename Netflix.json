@@ -1,0 +1,23 @@
+[
+    {
+        "iconUrl": "https://raw.githubusercontent.com/ExpectedNinja/NetMirror-Extension/refs/heads/master/Netmirror/logo.jpeg",
+        "fileHash": "sha256-d8d3b3cb4789b4388f5e0d58f8f8559e8674f1e944d1d1aff1f883eef81e05c7",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/ExpectedNinja/NetMirror-Extension",
+        "fileSize": 60581,
+        "status": 1,
+        "language": "hi",
+        "authors": [
+            "Sushan64"
+        ],
+        "tvTypes": [
+            "Movie",
+            "TvSeries"
+        ],
+        "version": 44,
+        "internalName": "Netmirror",
+        "description": "Netflix, Prime Video and Hotstar (incl. Disney+) in Multiple Languages",
+        "url": "https://raw.githubusercontent.com/ExpectedNinja/NetMirror-Extension/builds/Netmirror.cs3",
+        "name": "Netmirror"
+    }
+]
